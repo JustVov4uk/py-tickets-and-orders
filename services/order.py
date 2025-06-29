@@ -11,8 +11,8 @@ def create_order(tickets: list[dict],
     order = Order.objects.create(user=user)
 
     if date:
-        order.date = parse_datetime(date)
-        Order.objects.filter(id=order.id).update(created_at=order.date)
+        order.created_at = parse_datetime(date)
+        Order.objects.filter(id=order.id).update(created_at=order.created_at)
         order.refresh_from_db()
 
     for ticket_data in tickets:

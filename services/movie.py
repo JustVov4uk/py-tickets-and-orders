@@ -29,7 +29,7 @@ def get_movie_by_id(movie_id: int) -> Movie:
 
 @transaction.atomic
 def create_movie(movie_title: str, movie_description: str,
-                 genres_ids: int, actors_ids: int) -> None:
+                 genres_ids: list[int], actors_ids: list[int]) -> None:
     movie = Movie.objects.create(
         title=movie_title,
         description=movie_description,
